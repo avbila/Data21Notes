@@ -1,3 +1,4 @@
+# # Problem 1:
 # list_num=[]
 # for x in range(1, 1000):
 #     if x % 3 == 0:
@@ -23,4 +24,4 @@
 #             sum_of_numbers += current
 # print(sum_of_numbers) #4613732
 
-#problem 3:
+# problem 3:
