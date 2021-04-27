@@ -126,7 +126,7 @@ def day_4():
         else:
             person = person + ' ' + line.strip()
     passengers.append(person)
-    
+
     valid_identification = 0
     for identification in passengers:
         print(identification)
@@ -134,7 +134,7 @@ def day_4():
             "hgt:" in identification and "hcl:" in identification and "ecl:" in identification and\
                 "pid:" in identification:
             valid_identification += 1
-            print("yes")
+
     print(valid_identification)
 
 day_4()
