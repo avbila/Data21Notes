@@ -32,14 +32,11 @@ def transform_user_details(csv_name):
 
     return new_list_list
 
-print(transform_user_details(get_csv_file("user_details.csv")))
-
-
 def create_new_csv_file(old_details="user_details.csv", new_file_name = "new_details.csv"):
     new_details =transform_user_details(get_csv_file(old_details))
 
     with open(new_file_name,'w') as new_file:
-        csv_writer = csv.writer(new_file)
+        csv_writer = csv.writer(new_file, lineterminator='\n')
         csv_writer.writerows(new_details)
 
 
