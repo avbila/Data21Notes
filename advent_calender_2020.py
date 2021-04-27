@@ -128,12 +128,38 @@ def day_4():
     passengers.append(person)
 
     valid_identification = 0
+    second_valid_identification = 0
     for identification in passengers:
         print(identification)
         if "byr:" in identification and "iyr:" in identification and "eyr:" in identification and\
             "hgt:" in identification and "hcl:" in identification and "ecl:" in identification and\
                 "pid:" in identification:
             valid_identification += 1
+            # second level validation:
+            validity_counter = 0
+            # validating birth year
+            identification = identification.split(" ")
+            for type in identification:
+                if "byr:" in type:
+                    type = type.replace("byr:", "")
+                    if len(type) == 4 and 1920 <= int(type) <= 2002:
+                        validity_counter += 1
+
+                if "iyr:" in type:
+                    type = type.replace("iyr:", "")
+                    if len(type) == 4 and 2010 <= int(type) <= 2020:
+                        validity_counter += 1
+
+                if "eyr:" in type:
+                    type = type.replace("eyr:", "")
+                    if len(type) == 4 and 2020 <= int(type) <= 2030:
+                        validity_counter += 1
+
+                if "hgt:" in type:
+                    type = type.replace("hgt:", "")
+                    if len(type) == 4 and 2020 <= int(type) <= 2030:
+                        validity_counter += 1
+
 
     print(valid_identification)
 
