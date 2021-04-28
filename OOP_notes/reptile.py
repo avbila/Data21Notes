@@ -1,4 +1,4 @@
-from animal import Animal
+from OOP_notes.animal import Animal
 
 class Reptile(Animal): # inheritence
 
