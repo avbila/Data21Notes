@@ -46,6 +46,9 @@
 #                 denominators[index] = denominators[index] / current_number
 #
 # print(ans)  # 232792560
+# # or
+# import math as m
+# print(m.lmc(denominators))
 
 # # problem 4:
 # #The sum of the primes below 10 is 2 + 3 + 5 + 7 = 17.
@@ -65,6 +68,16 @@
 #         prime_numbers.append(num)
 #         print("The number of prime number is: "+str(len(prime_numbers)))
 # print(ans)  #142913828922
+# # or:
+n = 2000000
+numbers = [True for i in range(n+1)]
+sum = 0
+for number in range(2,n+1):
+    if numbers[number]:
+        sum += number
+        for i in range(number, n+1, number):
+            numbers[i] = False
+print(sum)
 
 # Problem 5:
 # If the numbers 1 to 5 are written out in words: one, two, three, four, five, then there
@@ -146,5 +159,3 @@ for number in range(1, 1001):
 
 print(sum_of_letters)
 
-import math as m
-m.lmc(1,2,3,4,5)
