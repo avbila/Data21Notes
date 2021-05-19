@@ -56,3 +56,18 @@ db = client['starwars']
 # )
 # pprint(list(humans))
 
+# female_height = db.characters.aggregate([
+#     {"$match": {"gender": "female", "height": {"$ne": float("nan")}}},  # or use np.nan from numpy
+#     {"$group": {"_id": "$gender", "avg_height": {"$avg" : "$height"}}}
+# ])
+# print(female_height.next())
+
+# max_height = db.characters.aggregate([
+#     {"$match": {"height": {"$ne": float("nan")}}},
+#     {"$group": {"_id": None, "max_height": {"$max": "$height"}}}  # set group _id to None to group over everyone
+# ]).next()["max_height"]
+# char_tallest = db.characters.find(
+#     {"height": max_height},
+#     {"name": 1, "_id": 0}
+# )
+# pprint(list(char_tallest))
