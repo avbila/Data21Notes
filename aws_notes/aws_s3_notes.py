@@ -89,3 +89,9 @@ s3_resource = boto3.resource('s3')
 #     Body=str_buffer.getvalue()
 # )
 
+
+# Deleting a file:
+# s3_client.delete_object(
+#     Bucket=bucket_name,
+#     Key="Data21/Andrei.json"
+# )
