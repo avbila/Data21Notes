@@ -342,6 +342,73 @@ class Day_8_problem:
     def trouble_shoot_jmp(self):
         pass
 
-test = Day_8_problem()
-test.get_input_file()
-test.get_cal_accumulator()
+
+# Day 7:
+class Day_7_problem:
+
+    def __init__(self):
+        self.input_file = {}
+        self.get_input_file()
+        self.no_bag_list = []
+        self.get_no_bag_list()
+
+    def get_input_file(self, file_name="AdventCalenderFiles/day_7.txt"):
+        with open(file_name, 'r') as input_file:
+            for line in input_file:
+                line = line.replace("\n", "")
+                line = line.replace("bags", "")
+                line = line.replace("bag", "")
+                line = line.replace(".", "")
+                line = line.split("contain")
+                line = [line[0], line[1].split(",")]
+                line = [line[0].strip(), self.split_bag_contents(line[1])]
+                self.input_file[line[0]] = line[1]
+
+    def split_bag_contents(self, input_list):
+        bag_contents_dictionary = {}
+        for bag in input_list:
+            bag = bag.strip()
+            bag = bag.replace(" ", "@", 1)
+            bag = bag.split("@")
+            if bag[0] == "no":
+                no_of_bags = 0
+            else:
+                no_of_bags = int(bag[0])
+            bag_contents_dictionary[bag[1]] = no_of_bags
+        return bag_contents_dictionary
+
+    def challenge_1(self, search="shiny gold"):
+        search_list = [search]
+        item = 0
+
+        while item != len(search_list):
+            colour = search_list[item]
+            for bag in self.input_file.keys():
+                # check if the colour is in the bag:
+                if colour in self.input_file[bag].keys():
+                    # check if bag has already been added and add if it isn't there:
+                    if bag not in search_list:
+                        search_list.append(bag)
+            item += 1
+        print(search_list)
+        print(len(search_list)-1)
+
+    def get_no_bag_list(self):
+        for bag in self.input_file.keys():
+            if "other" in self.input_file[bag].keys():
+                self.no_bag_list.append(bag)
+
+    def challenge_2(self, colour="shiny gold"):
+        no_of_bags = 0
+        bag = self.input_file[colour]
+
+        for item in bag.keys():
+            
+
+
+
+
+print("starting")
+day_7 = Day_7_problem()
+print(day_7.no_bag_list)
+
