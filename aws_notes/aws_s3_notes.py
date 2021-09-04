@@ -10,12 +10,12 @@ print(s3_client)
 bucket_name = 'data-eng-resources'
 s3_resource = boto3.resource('s3')
 
-# Seeing data:
-# # 1) List of buckets:
+#Seeing data:
+# 1) List of buckets:
 # bucket_list = s3_client.list_buckets()
 # for bucket in bucket_list['Buckets']:
 #     pprint(bucket['Name'])
-#
+# # #
 # # 2)Get list of objects : list_objects_v2(prints 1000 max)
 # bucket_contents = s3_client.list_objects_v2(Bucket=bucket_name,
 #                                             Prefix='big-data')  # Prefix to filter "folders"
@@ -23,9 +23,10 @@ s3_resource = boto3.resource('s3')
 # for key_name in bucket_contents['Contents']:
 #     print(key_name['Key'])
 #
-# # 3) Get list of objects : all objects
+# 3) Get list of objects : all objects
 # bucket = s3_resource.Bucket(bucket_name)
 # contents = bucket.objects.all()
+# print(list(contents))
 # for object in contents:
 #  pprint(object.key)
 
@@ -95,3 +96,13 @@ s3_resource = boto3.resource('s3')
 #     Bucket=bucket_name,
 #     Key="Data21/Andrei.json"
 # )
+
+# paginator:
+# # Create a reusable Paginator
+# paginator = client.get_paginator('list_objects')
+#
+# # Create a PageIterator from the Paginator
+# page_iterator = paginator.paginate(Bucket='my-bucket')
+#
+# for page in page_iterator:
+#     print(page['Contents'])

@@ -31,16 +31,16 @@ print(result)
 #
 # # Getting column names:
 # print(result.keys())
-
-row = list(result)[0]
+#
+row = list(result)
 print(row)
-# for x in row:
-#     print(x)
-#     print(type(x))
-print(float(row[5]))
-
-data = pd.read_sql('SELECT * FROM Products', connection, index_col='ProductID')
-print(data)
-for row in data:
-    print(row)
-
+for x in row:
+    print(x)
+# #     print(type(x))
+# print(float(row[5]))
+#
+# data = pd.read_sql('SELECT * FROM Products', connection, index_col='ProductID')
+# print(data)
+# for row in data:
+#     print(row)
+#
