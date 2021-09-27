@@ -398,11 +398,11 @@ class Day_7_problem:
             if "other" in self.input_file[bag].keys():
                 self.no_bag_list.append(bag)
 
-    def challenge_2(self, colour="shiny gold"):
-        no_of_bags = 0
-        bag = self.input_file[colour]
-
-        for item in bag.keys():
+    # def challenge_2(self, colour="shiny gold"):
+    #     no_of_bags = 0
+    #     bag = self.input_file[colour]
+    #
+    #     for item in bag.keys():
             
 
 
